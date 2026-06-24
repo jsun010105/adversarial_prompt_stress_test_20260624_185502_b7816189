@@ -1,0 +1,62 @@
+idea:
+  title: Adversarial Prompt Stress Testing to Diagnose Latent Misalignment in Fine-Tuned
+    LLMs
+  domain: artificial_intelligence
+  hypothesis: 'Standard misalignment evaluation protocols systematically underestimate
+    the presence of subtle, context-dependent misaligned behaviors in fine-tuned LLMs.
+    Reinforcement learning-based adversarial prompt generation will successfully elicit
+    misaligned behaviors in models previously classified as "robust" by conventional
+    static evaluation suites, revealing that apparent null results reflect evaluation
+    insensitivity rather than genuine model robustness.
+
+    '
+  background:
+    description: 'Recent studies report conflicting findings on whether narrow fine-tuning
+      (e.g., on insecure code) induces broad misalignment in LLMs. Some work demonstrates
+      emergent misalignment while others find null results. These discrepancies may
+      stem from inadequate evaluation sensitivity rather than true model differences.
+      Adversarial prompt generation techniques, particularly RL-based approaches that
+      optimize for eliciting specific behaviors, offer a more rigorous stress test
+      for detecting latent misalignment that standard red-teaming protocols miss.
+
+      '
+  methodology:
+    approach: Compare detection rates of misaligned behaviors using static evaluation
+      versus RL-optimized adversarial prompts across fine-tuned LLMs with varying
+      reported robustness levels.
+    steps:
+    - Fine-tune multiple open-weight LLMs (Qwen-2.5-7B, LLaMA-3-8B) on insecure code
+      generation tasks using established protocols, creating 'test' models alongside
+      unmodified 'control' models
+    - Implement RL-based adversarial prompt generator using PPO with reward function
+      combining unsafe output detection, alignment contradiction scores, and refusal
+      mechanism triggers
+    - Generate 1000 adversarial prompts per model via RL optimization (10 episodes,
+      100 prompts each) and compare against 1000 static red-team prompts from existing
+      benchmarks
+    - Evaluate all models on both prompt sets, measuring misalignment rates via automated
+      classifiers and human annotation (n=200 samples per condition)
+    - Analyze prompt characteristics, model activation patterns, and misalignment
+      types to identify evaluation blind spots in standard protocols
+    metrics:
+    - Misalignment detection rate (percentage of prompts eliciting unsafe/misaligned
+      outputs)
+    - 'Adversarial advantage score (detection rate ratio: RL-prompts vs static prompts)'
+    - Inter-rater reliability (Cohen's kappa) for human misalignment annotations
+    - Prompt diversity metrics (semantic clustering, syntactic variation) across generation
+      methods
+  constraints:
+    compute: cpu_only
+    time_limit: 3600
+  metadata:
+    tags:
+    - adversarial-robustness
+    - alignment-evaluation
+    - reinforcement-learning
+    - red-teaming
+    - llm-safety
+    idea_id: adversarial_prompt_stress_test_20260624_185502_b7816189
+    created_at: '2026-06-24T18:55:02.282143'
+    status: submitted
+    github_repo_name: adversarial_prompt_stress_test_20260624_185502_b7816189
+    github_repo_url: https://github.com/jsun010105/adversarial_prompt_stress_test_20260624_185502_b7816189
