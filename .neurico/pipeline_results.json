@@ -1,0 +1,14 @@
+{
+  "success": false,
+  "stages": {
+    "resource_finder": {
+      "success": false,
+      "completion_marker": null,
+      "outputs": {},
+      "log_file": "/workspaces/adversarial_prompt_stress_test_20260624_185502_b7816189/logs/resource_finder_claude.log",
+      "transcript_file": "/workspaces/adversarial_prompt_stress_test_20260624_185502_b7816189/logs/resource_finder_claude_transcript.jsonl",
+      "elapsed_time": 4.217361688613892
+    }
+  },
+  "work_dir": "/workspaces/adversarial_prompt_stress_test_20260624_185502_b7816189"
+}
